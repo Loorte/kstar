@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f4cf08d66bdefbb404a14a94eb7fea20",
+    "content-hash": "29dfb857264a4ea18edc28eda196f2f2",
     "packages": [
         {
             "name": "botman/botman",
@@ -1585,6 +1585,65 @@
             "time": "2018-09-29T18:48:56+00:00"
         },
         {
+            "name": "kalnoy/nestedset",
+            "version": "v5.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/lazychaser/laravel-nestedset.git",
+                "reference": "d4fe17f9abd3414014bda32a5612c9ed24246f99"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/lazychaser/laravel-nestedset/zipball/d4fe17f9abd3414014bda32a5612c9ed24246f99",
+                "reference": "d4fe17f9abd3414014bda32a5612c9ed24246f99",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "~5.7.0|~5.8.0|^6.0|^7.0",
+                "illuminate/events": "~5.7.0|~5.8.0|^6.0|^7.0",
+                "illuminate/support": "~5.7.0|~5.8.0|^6.0|^7.0",
+                "php": ">=7.1.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "7.*"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "v5.0.x-dev"
+                },
+                "laravel": {
+                    "providers": [
+                        "Kalnoy\\Nestedset\\NestedSetServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kalnoy\\Nestedset\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Alexander Kalnoy",
+                    "email": "lazychaser@gmail.com"
+                }
+            ],
+            "description": "Nested Set Model for Laravel 5.7 and up",
+            "keywords": [
+                "database",
+                "hierarchy",
+                "laravel",
+                "nested sets",
+                "nsm"
+            ],
+            "time": "2020-03-04T05:33:20+00:00"
+        },
+        {
             "name": "kylekatarnls/update-helper",
             "version": "1.2.1",
             "source": {
@@ -1642,6 +1701,113 @@
                 }
             ],
             "time": "2020-04-07T20:44:10+00:00"
+        },
+        {
+            "name": "laravel-admin-ext/grid-sortable",
+            "version": "v1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-admin-extensions/grid-sortable.git",
+                "reference": "d7245c250dbfa1d712fdad93dbf435514713a717"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-admin-extensions/grid-sortable/zipball/d7245c250dbfa1d712fdad93dbf435514713a717",
+                "reference": "d7245c250dbfa1d712fdad93dbf435514713a717",
+                "shasum": ""
+            },
+            "require": {
+                "encore/laravel-admin": ">=1.7.2",
+                "php": ">=7.0.0",
+                "spatie/eloquent-sortable": "*"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Encore\\Admin\\GridSortable\\GridSortableServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Encore\\Admin\\GridSortable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "z-song",
+                    "email": "zsong@126.com"
+                }
+            ],
+            "description": "Sort the grid data by drag and drop rows",
+            "homepage": "https://github.com/laravel-admin-ext/grid-sortable",
+            "keywords": [
+                "extension",
+                "grid",
+                "laravel-admin",
+                "sortable"
+            ],
+            "time": "2020-02-18T03:06:20+00:00"
+        },
+        {
+            "name": "laravel-admin-ext/helpers",
+            "version": "v1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel-admin-extensions/helpers.git",
+                "reference": "47fac9ad239da56a444af86a0fa53b213209dd6d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel-admin-extensions/helpers/zipball/47fac9ad239da56a444af86a0fa53b213209dd6d",
+                "reference": "47fac9ad239da56a444af86a0fa53b213209dd6d",
+                "shasum": ""
+            },
+            "require": {
+                "encore/laravel-admin": "~1.6",
+                "php": ">=7.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Encore\\Admin\\Helpers\\HelpersServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Encore\\Admin\\Helpers\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "z-song",
+                    "email": "zosong@126.com"
+                }
+            ],
+            "description": "Helpers extension for laravel-admin",
+            "homepage": "https://github.com/laravel-admin-extensions/helpers",
+            "keywords": [
+                "helpers",
+                "laravel-admin"
+            ],
+            "time": "2019-12-11T02:59:06+00:00"
         },
         {
             "name": "laravel-admin-ext/log-viewer",
@@ -3603,6 +3769,56 @@
                 "writable"
             ],
             "time": "2020-05-04T10:17:57+00:00"
+        },
+        {
+            "name": "spatie/eloquent-sortable",
+            "version": "3.4.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/spatie/eloquent-sortable.git",
+                "reference": "340c7338031338aba47c41836e335bf9a5ef0216"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/spatie/eloquent-sortable/zipball/340c7338031338aba47c41836e335bf9a5ef0216",
+                "reference": "340c7338031338aba47c41836e335bf9a5ef0216",
+                "shasum": ""
+            },
+            "require": {
+                "laravel/framework": "~5.5.0|~5.6.0|~5.7.0|~5.8.0",
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.5.0|~3.6.0|~3.7.0|~5.8.0",
+                "phpunit/phpunit": "^6.2|^7.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Spatie\\EloquentSortable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Freek Van der Herten",
+                    "email": "freek@spatie.be"
+                }
+            ],
+            "description": "Sortable behaviour for eloquent models",
+            "homepage": "https://github.com/spatie/eloquent-sortable",
+            "keywords": [
+                "behaviour",
+                "eloquent",
+                "laravel",
+                "model",
+                "sort",
+                "sortable"
+            ],
+            "time": "2019-02-27T00:18:34+00:00"
         },
         {
             "name": "spatie/macroable",
@@ -7080,6 +7296,7 @@
             "keywords": [
                 "tokenizer"
             ],
+            "abandoned": true,
             "time": "2019-09-17T06:23:10+00:00"
         },
         {
