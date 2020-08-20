@@ -1,0 +1,55 @@
+server {
+server_name bot.cango.club;
+listen 80;
+#return 301 https://$server_name$request_uri;
+access_log /var/log/nginx/bot.access.log;
+error_log /var/log/nginx/bot.error.log;
+charset utf-8;
+index index.php;
+root /var/www/anan4ik_bot/public;
+location / {
+  try_files $uri $uri/ /index.php?$query_string;
+}
+
+location ~ \.php$ {
+   try_files $uri $uri/ /index.php?$query_string;
+      fastcgi_pass unix:/run/php/php7.3-fpm.sock;
+      fastcgi_index index.php;
+      fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+      include fastcgi_params;
+   fastcgi_read_timeout 909;
+   }
+
+   location ~ /\.ht {
+           deny all;
+   }
+
+}
+
+server {
+server_name bot.cango.club;
+listen 443 ssl;
+access_log /var/log/nginx/bot.access.log;
+error_log /var/log/nginx/bot.error.log;
+charset utf-8;
+index index.php;
+root /var/www/anan4ik_bot/public;
+#ssl_certificate "/etc/letsencrypt/live/bot.cango.club/fullchain.pem";
+#ssl_certificate_key "/etc/letsencrypt/live/bot.cango.club/privkey.pem";
+location / {
+  try_files $uri $uri/ /index.php?$query_string;
+}
+
+location ~ \.php$ {
+   try_files $uri $uri/ /index.php?$query_string;
+      fastcgi_pass unix:/run/php/php7.3-fpm.sock;
+      fastcgi_index index.php;
+      fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+      include fastcgi_params;
+   fastcgi_read_timeout 909;
+   }
+
+   location ~ /\.ht {
+           deny all;
+   }
+}
