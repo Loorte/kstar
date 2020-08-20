@@ -51,7 +51,7 @@ $botman->hears('/start|START', function ($bot) {
     ]
   );
 
-  \App\TgUser::fixTree();
+  \App\TgUser::fixTree(); //Фиксируем юзера
   $keyboard = Keyboard::create()->type(Keyboard::TYPE_KEYBOARD)
       ->addRow(
           KeyboardButton::create('START')->callbackData('/start')
