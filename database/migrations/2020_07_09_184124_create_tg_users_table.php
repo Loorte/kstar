@@ -21,6 +21,8 @@ class CreateTgUsersTable extends Migration
             $table->text('first_name')->nullable();
             $table->text('last_name')->nullable();
             $table->text('user_name')->nullable();
+            $table->boolean('is_admin')->nullable()->default(false);
+            $table->nestedSet();
         });
     }
 
