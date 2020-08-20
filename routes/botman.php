@@ -4,6 +4,8 @@ use App\Http\Controllers\BotManController;
 use BotMan\Drivers\Telegram\Extensions\Keyboard;
 use BotMan\Drivers\Telegram\Extensions\KeyboardButton;
 
+use App\Conversations\SiteAdminConversation;
+
 $botman = resolve('botman');
 
 $botman->hears('/start {user_id}', function ($bot, $user_id=0) {
@@ -70,3 +72,12 @@ $botman->hears('/start|START', function ($bot) {
   $bot->reply($message, $keyboard);
 
 });
+
+$botman->hears('/site_admin|Настройка сервиса', function($bot) {
+  $User = \App\TgUser::getByTg($bot->getUser()->getId());
+  if($User->is_admin)
+    $bot->startConversation(new SiteAdminConversation);
+  else {
+    $bot->reply("Доступ запрещён");
+  }
+})->stopsConversation();
