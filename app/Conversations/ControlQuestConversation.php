@@ -68,11 +68,14 @@ class ControlQuestConversation extends Conversation{
       $question->addButton(Button::create($QContent->title)->value('select_'.$QContent->id));
     }
     $question->addButton(Button::create('Добавить столбец')->value('add'));
+    $question->addButton(Button::create('<< Назад')->value('back'));
 
     $this->ask($question, function (Answer $answer) {
         if ($answer->isInteractiveMessageReply()) {
           if($answer->getValue() === 'add') {
             $this->QContentNewTitle();
+          } else if($answer->getValue() === 'back') {
+            $this->setQuest();
           } else {
             $ans = explode('_', $answer->getValue());
             $this->QContent = \App\QContent::where('id', $ans[1])->first();
