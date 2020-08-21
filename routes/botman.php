@@ -5,6 +5,7 @@ use BotMan\Drivers\Telegram\Extensions\Keyboard;
 use BotMan\Drivers\Telegram\Extensions\KeyboardButton;
 
 use App\Conversations\SiteAdminConversation;
+use App\Conversations\StudentsConversation;
 
 $botman = resolve('botman');
 
@@ -56,8 +57,12 @@ $botman->hears('/start|START', function ($bot) {
   \App\TgUser::fixTree(); //Фиксируем юзера
   $keyboard = Keyboard::create()->type(Keyboard::TYPE_KEYBOARD)
       ->addRow(
-          KeyboardButton::create('START')->callbackData('/start')
-          );
+        KeyboardButton::create('Ученики')->callbackData('/students'),
+        KeyboardButton::create('Анкеты')->callbackData('/config_quest'),
+      )
+      ->addRow(
+        KeyboardButton::create('START')->callbackData('/start'),
+      );
   $sel_user = \App\TgUser::getByTg($bot->getUser()->getId());
 
   if(!is_null($sel_user) && $sel_user->is_admin) {
@@ -80,4 +85,13 @@ $botman->hears('/site_admin|Настройка сервиса', function($bot) {
   else {
     $bot->reply("Доступ запрещён");
   }
+})->stopsConversation();
+
+$botman->hears('/students|Ученики', function($bot) {
+  //$User = \App\TgUser::getByTg($bot->getUser()->getId());
+  //if($User->is_admin)
+    $bot->startConversation(new StudentsConversation);
+  /*else {
+    $bot->reply("Доступ запрещён");
+  }*/
 })->stopsConversation();

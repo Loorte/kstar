@@ -65,14 +65,14 @@ class SiteAdminConversation extends Conversation
 
     public function users() {
       if(!is_null($this->getQ())) {
-        $users = \App\TgUser::where('user_name', 'like', "%".$this->getQ()."%")->get();
+        $users = \App\TgUser::where('user_name', 'like', "%".$this->getQ()."%")->orWhere('first_name', 'like', "%".$this->getQ()."%")->orWhere('last_name', 'like', "%".$this->getQ()."%")->get();
       } else {
         $users = \App\TgUser::get();
       }
 
       $question = Question::create("Пользователи /site_admin");
       foreach($users as $user) {
-        $question->addButton(Button::create($user->user_name)->value('edit_'.$user->id));
+        $question->addButton(Button::create($user->first_name."[".($user->user_name ?? $user->telegram_id)."]")->value('edit_'.$user->id));
       }
 
       if(!is_null($this->getQ())) {
