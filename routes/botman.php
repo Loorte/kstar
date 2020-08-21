@@ -6,6 +6,7 @@ use BotMan\Drivers\Telegram\Extensions\KeyboardButton;
 
 use App\Conversations\SiteAdminConversation;
 use App\Conversations\StudentsConversation;
+use App\Conversations\ControlQuestConversation;
 
 $botman = resolve('botman');
 
@@ -91,6 +92,15 @@ $botman->hears('/students|Ученики', function($bot) {
   //$User = \App\TgUser::getByTg($bot->getUser()->getId());
   //if($User->is_admin)
     $bot->startConversation(new StudentsConversation);
+  /*else {
+    $bot->reply("Доступ запрещён");
+  }*/
+})->stopsConversation();
+
+$botman->hears('/config_quest|Анкеты', function($bot) {
+  //$User = \App\TgUser::getByTg($bot->getUser()->getId());
+  //if($User->is_admin)
+    $bot->startConversation(new ControlQuestConversation);
   /*else {
     $bot->reply("Доступ запрещён");
   }*/
